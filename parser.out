@@ -1,0 +1,26 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    Destino
+    Final
+    Numero
+
+Grammar
+
+Rule 0     S' -> expresion
+Rule 1     expresion -> NUMERO TIPO_CONVERSION
+
+Terminals, with rules where they appear
+
+Destino              : 
+Final                : 
+Numero               : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+NUMERO               : 1
+TIPO_CONVERSION      : 1
+expresion            : 0
+

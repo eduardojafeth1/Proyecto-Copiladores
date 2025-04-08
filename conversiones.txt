@@ -1,0 +1,9 @@
+30 Hexadecimal $
+160 Binario $
+30 Hexadecimal $
+160 Binario $
+100 Octal $
+255 Decimal $
+10110101 Binario $
+1A Hexadecimal $
+777 Octal $
