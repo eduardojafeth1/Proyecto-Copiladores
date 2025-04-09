@@ -2,7 +2,7 @@ import ply.yacc as yacc
 from AnalizadorLexico import *
 
 # Lista de tokens
-
+tokens = ['NUMERO', 'TIPO_CONVERSION']
 
 # Definimos las reglas de la gramática
 def p_expresion(p):
