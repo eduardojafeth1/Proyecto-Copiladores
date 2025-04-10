@@ -2,22 +2,24 @@ import ply.lex as lex
 
 tokens =(
     'Numero',
-    'Destino',
+    'Sistema',
     'Final'
 )
 
 
-t_Destino=r'Hexadecimal|Octal|Binario|Romano|Alternativo|Aleatorio'
+def t_Sistema(t):
+    r'Hexadecimal|Octal|Binario|Romano|Alternativo|Aleatorio|Decimal'
+    return t
 t_Final=r'\$'
 
 def t_Numero(t):
-    r'\d+'
-    t.value = int(t.value)
+    r'[A-Fa-f0-9]+'
+    t.value = (t.value)
     return t
 
 def t_newline(t):
     r'\n+'
-    t.lexer.lineno += len(t.valor)
+    t.lexer.lineno += len(t.value)
 
 t_ignore = ' \t\n'
 
@@ -33,6 +35,8 @@ def analizadorLexico(L):
     for token in lexer:
         print(token)
     
-# Abrir el archivo en modo lectura
 
 
+with open('conversiones.txt', 'r') as archivo:
+    for linea in archivo:   
+        analizadorLexico(linea)

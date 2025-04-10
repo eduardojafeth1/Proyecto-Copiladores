@@ -1,9 +1,11 @@
-30 Hexadecimal $
-160 Binario $
-30 Hexadecimal $
-160 Binario $
-100 Octal $
-255 Decimal $
-10110101 Binario $
-1A Hexadecimal $
-777 Octal $
+Decimal 30 Hexadecimal $
+Decimal 160 Binario $
+Decimal30 Hexadecimal $
+Decimal160 Binario $
+Decimal100 Octal $
+Decimal255 Decimal $
+Binario10110101 Decimal $
+Hexadecimal 1A Decimal $
+Decimal777 Octal $
+
+Decimal 28 Binario$
