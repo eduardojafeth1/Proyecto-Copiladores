@@ -31,12 +31,16 @@ lexer=lex.lex()
 
 
 def analizadorLexico(L):
+    res=[]
     lexer.input(L)
     for token in lexer:
-        print(token)
+        res.append( "\n"+f"Línea: {token.lineno} | Tipo: {token.type} | Valor: {token.value}\n")
+    return res
+    
     
 
-
+'''
 with open('conversiones.txt', 'r') as archivo:
     for linea in archivo:   
-        analizadorLexico(linea)
+        print(analizadorLexico(linea))'''
+

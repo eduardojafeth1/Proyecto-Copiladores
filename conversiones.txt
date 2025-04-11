@@ -6,6 +6,6 @@ Decimal100 Octal $
 Decimal255 Decimal $
 Binario10110101 Decimal $
 Hexadecimal 1A Decimal $
-Decimal777 Octal $
+Decimal777  $
 
 Decimal 28 Binario$

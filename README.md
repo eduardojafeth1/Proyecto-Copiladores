@@ -30,7 +30,7 @@ El analizador sintáctico tiene como objetivo analizar la estructura de los toke
 - [x] Implementar las funciones para manejar las reglas de **SistemaOrigen** y **SistemaDestino**.
 - [x] Crear las funciones para manejar errores sintácticos.
 - [x] Imprimir un mensaje al detectar una conversión válida y los detalles del sistema de origen, número y sistema de destino.
--[] Crear Funciones de conversion y remplazar el comportamiento en las reglas del analizador Sintactico
+-[x] Crear Funciones de conversion y remplazar el comportamiento en las reglas del analizador Sintactico
 ---
 
 ### 4. **Construcción del Árbol Sintáctico**

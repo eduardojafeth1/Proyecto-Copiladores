@@ -1,5 +1,11 @@
+assets/external/
+*.db
+*.py[cod]
+.web
+.states
 __pycache__/
 parsetab.py
 pruebaParser.py
 parser.py
 parser.out
+.venv

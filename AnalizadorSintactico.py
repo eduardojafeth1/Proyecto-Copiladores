@@ -1,18 +1,19 @@
 import ply.yacc as yacc
 from AnalizadorLexico import tokens, lexer  
+from funcionesConversion import convertir
 
-import random
-
-# === Funciones de conversión ===
-
+global_var=""
 # === Regla inicial ===
 def p_expresion(p):
     'expresion : conversion Final'
+    p[0] = p[1] 
+    return p[0]
 
 def p_conversion(p):
     'conversion : SistemaOrigen Numero SistemaDestino'
-    print(f"Conversión válida: De {p[1]} a {p[3]} con el número {p[2]}")
-
+    p[0]=convertir(p[2],p[1],p[3])
+    global global_var
+    global_var=f"Conversión válida: De {p[1]} a {p[3]} con el número {p[2]} resultado:{p[0]}"
 # Definir las reglas de SistemaOrigen y SistemaDestino
 def p_SistemaOrigen(p):
     'SistemaOrigen : Sistema'
@@ -23,45 +24,30 @@ def p_SistemaDestino(p):
     p[0] = p[1]  # Asignamos el valor del sistema de destino
 
 
-def p_error(t):
-    if t:
-        print(f"[SINTÁCTICO] Error de sintaxis con '{t.value}' en línea {t.lineno}")
+def p_error(p):
+    if p:
+       global global_var 
+       global_var= f"[SINTÁCTICO] Error de sintaxis con '{p.value}' en línea {p.lineno}"
     else:
-        print("[SINTÁCTICO] Error de sintaxis al final de la entrada.")
+       
+       global_var = "[SINTÁCTICO] Error de sintaxis al final de la entrada."
+    p="error"
+    return "error"
 
-
-def decimal_a_romano(n):
-    val = [
-        (1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
-        (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'),
-        (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')
-    ]
-    res = ''
-    for (arab, rom) in val:
-        while n >= arab:
-            res += rom
-            n -= arab
-    return res
-
-def convertir(numero, tipo):
-    if tipo == 'Hexadecimal':
-        return hex(numero)[2:].upper()
-    elif tipo == 'Binario':
-        return bin(numero)[2:]
-    elif tipo == 'Octal':
-        return oct(numero)[2:]
-    elif tipo == 'Romano':
-        return decimal_a_romano(numero)
-    elif tipo == 'Alternativo':
-        return f"[ALT:{numero}]"
-    elif tipo == 'Aleatorio':
-        tipo_random = random.choice(['Hexadecimal', 'Binario', 'Octal', 'Romano'])
-        return convertir(numero, tipo_random)
-    else:
-        return "Tipo desconocido"
 parser = yacc.yacc()
 
-with open('conversiones.txt', 'r') as archivo:
-    for linea in archivo:
+def analizadorSintactico(input):
+    res=""
+    print(input)
+    try:
+        res=str(parser.parse(input))
+    except Exception as e:
+        return str(e)
+    print(res)
+    return global_var
+
+'''with open("conversiones.txt",'r') as libro:
+    for linea in libro:
+        linea = linea.strip()
         parser.parse(linea)
-    print(parser)
+        print("\n")'''

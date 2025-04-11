@@ -1,7 +1,4 @@
-from AnalizadorSintactico import analizar_sintaxis
+from AnalizadorLexico import analizadorLexico
+from AnalizadorSintactico import parser
+import flask
 
-while True:
-    entrada = input("Ingresa un número y tipo de conversión (ej. 15 binario): ")
-    if entrada.lower() in ['salir', 'exit']:
-        break
-    analizar_sintaxis(entrada)
