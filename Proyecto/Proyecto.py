@@ -82,7 +82,7 @@ def index() -> rx.Component:
             rx.heading("Analizis Lexico",color="#111"),
             rx.foreach(
                 State.tokens,
-                lambda t: rx.text(t, color="#000")
+                lambda t: rx.text(t, color="#000",size="3")
                     ),
             width="50%",
             padding="1em"
@@ -91,12 +91,13 @@ def index() -> rx.Component:
         height="100%",
         align_items="stretch"
     ),
+
     border="1px solid #ccc",
     padding="1em",
     margin_top="1em",
     border_radius="34px",
     background_color="#f9f9f9",
-    width="75vw",
+    width="50vw",
     height="50vh",
 )
 
