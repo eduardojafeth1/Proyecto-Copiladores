@@ -39,8 +39,6 @@ def analizadorLexico(L):
     
     
 
-'''
-with open('conversiones.txt', 'r') as archivo:
-    for linea in archivo:   
-        print(analizadorLexico(linea))'''
+
+
 

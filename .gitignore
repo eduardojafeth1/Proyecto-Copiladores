@@ -6,6 +6,5 @@ assets/external/
 __pycache__/
 parsetab.py
 pruebaParser.py
-parser.py
-parser.out
+
 .venv

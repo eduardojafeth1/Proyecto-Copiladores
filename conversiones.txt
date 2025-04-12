@@ -7,5 +7,6 @@ Decimal255 Decimal $
 Binario10110101 Decimal $
 Hexadecimal 1A Decimal $
 Decimal777  $
+Decimal 5 Alternativo $
 
 Decimal 28 Binario$

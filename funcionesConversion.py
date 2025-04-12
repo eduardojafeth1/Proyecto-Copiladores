@@ -1,5 +1,21 @@
 import random
 
+
+def decimal_a_alternativo(decimal):
+    return "|" * int(decimal)
+
+def octal_a_alternativo(octal):
+    return "|" * int(octal, 8)
+
+def hexadecimal_a_alternativo(hexadecimal):
+    return "|" * int(hexadecimal, 16)
+
+def binario_a_alternativo(binario):
+    return "|" * int(binario, 2)
+
+def romano_a_alternativo(romano):
+    return "|" * romano_a_decimal(romano)
+
 def decimal_a_octal(decimal):
     return oct(decimal)
 
@@ -79,7 +95,9 @@ def romano_a_binario(romano):
     return bin(romano_a_decimal(romano))
 
 def convertir(valor, origen, destino):
-    if destino == "Aleatorio":
+    if destino==origen:
+        return valor
+    elif destino == "Aleatorio":
         return convertir_aleatorio(valor, origen)
     elif origen == "Decimal":
         if destino == "Octal":
@@ -90,6 +108,8 @@ def convertir(valor, origen, destino):
             return decimal_a_binario(int(valor))
         elif destino == "Romano":
             return decimal_a_romano(int(valor))
+        elif destino == "Alternativo":
+            return decimal_a_alternativo(int(valor))
     elif origen == "Octal":
         if destino == "Decimal":
             return octal_a_decimal(valor)
@@ -99,6 +119,8 @@ def convertir(valor, origen, destino):
             return octal_a_binario(valor)
         elif destino == "Romano":
             return octal_a_romano(valor)
+        elif destino == "Alternativo":
+            return decimal_a_octal(int(valor))
     elif origen == "Hexadecimal":
         if destino == "Decimal":
             return hexadecimal_a_decimal(valor)
@@ -108,6 +130,8 @@ def convertir(valor, origen, destino):
             return hexadecimal_a_binario(valor)
         elif destino == "Romano":
             return hexadecimal_a_romano(valor)
+        elif destino == "Alternativo":
+            return hexadecimal_a_alternativo(valor)
     elif origen == "Binario":
         if destino == "Decimal":
             return binario_a_decimal(valor)
@@ -117,6 +141,8 @@ def convertir(valor, origen, destino):
             return binario_a_hexadecimal(valor)
         elif destino == "Romano":
             return binario_a_romano(valor)
+        elif destino == "Alternativo":
+            return binario_a_alternativo(valor)
     elif origen == "Romano":
         if destino == "Decimal":
             return romano_a_decimal(valor)
@@ -126,6 +152,9 @@ def convertir(valor, origen, destino):
             return romano_a_hexadecimal(valor)
         elif destino == "Binario":
             return romano_a_binario(valor)
+        elif destino == "Alternativo":
+            return romano_a_alternativo(valor)
+    
     
 
 def convertir_aleatorio(valor, origen):

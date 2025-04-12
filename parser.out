@@ -1,0 +1,95 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> expresion
+Rule 1     expresion -> conversion Final
+Rule 2     conversion -> SistemaOrigen Numero SistemaDestino
+Rule 3     SistemaOrigen -> Sistema
+Rule 4     SistemaDestino -> Sistema
+
+Terminals, with rules where they appear
+
+Final                : 1
+Numero               : 2
+Sistema              : 3 4
+error                : 
+
+Nonterminals, with rules where they appear
+
+SistemaDestino       : 2
+SistemaOrigen        : 2
+conversion           : 1
+expresion            : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . expresion
+    (1) expresion -> . conversion Final
+    (2) conversion -> . SistemaOrigen Numero SistemaDestino
+    (3) SistemaOrigen -> . Sistema
+
+    Sistema         shift and go to state 4
+
+    expresion                      shift and go to state 1
+    conversion                     shift and go to state 2
+    SistemaOrigen                  shift and go to state 3
+
+state 1
+
+    (0) S' -> expresion .
+
+
+
+state 2
+
+    (1) expresion -> conversion . Final
+
+    Final           shift and go to state 5
+
+
+state 3
+
+    (2) conversion -> SistemaOrigen . Numero SistemaDestino
+
+    Numero          shift and go to state 6
+
+
+state 4
+
+    (3) SistemaOrigen -> Sistema .
+
+    Numero          reduce using rule 3 (SistemaOrigen -> Sistema .)
+
+
+state 5
+
+    (1) expresion -> conversion Final .
+
+    $end            reduce using rule 1 (expresion -> conversion Final .)
+
+
+state 6
+
+    (2) conversion -> SistemaOrigen Numero . SistemaDestino
+    (4) SistemaDestino -> . Sistema
+
+    Sistema         shift and go to state 8
+
+    SistemaDestino                 shift and go to state 7
+
+state 7
+
+    (2) conversion -> SistemaOrigen Numero SistemaDestino .
+
+    Final           reduce using rule 2 (conversion -> SistemaOrigen Numero SistemaDestino .)
+
+
+state 8
+
+    (4) SistemaDestino -> Sistema .
+
+    Final           reduce using rule 4 (SistemaDestino -> Sistema .)
+

@@ -7,6 +7,7 @@ global_var=""
 def p_expresion(p):
     'expresion : conversion Final'
     p[0] = p[1] 
+    
     return p[0]
 
 def p_conversion(p):
@@ -14,6 +15,7 @@ def p_conversion(p):
     p[0]=convertir(p[2],p[1],p[3])
     global global_var
     global_var=f"Conversión válida: De {p[1]} a {p[3]} con el número {p[2]} resultado:{p[0]}"
+    print(global_var)
 # Definir las reglas de SistemaOrigen y SistemaDestino
 def p_SistemaOrigen(p):
     'SistemaOrigen : Sistema'
@@ -34,9 +36,10 @@ def p_error(p):
     p="error"
     return "error"
 
-parser = yacc.yacc()
 
-def analizadorSintactico(input):
+parser = yacc.yacc(debug=True)
+
+"""def analizadorSintactico(input):
     res=""
     print(input)
     try:
@@ -44,10 +47,6 @@ def analizadorSintactico(input):
     except Exception as e:
         return str(e)
     print(res)
-    return global_var
+    return global_var"""
 
-'''with open("conversiones.txt",'r') as libro:
-    for linea in libro:
-        linea = linea.strip()
-        parser.parse(linea)
-        print("\n")'''
+
