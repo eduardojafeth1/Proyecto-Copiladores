@@ -3,11 +3,10 @@ from AnalizadorLexico import tokens, lexer
 from funcionesConversion import convertir
 
 global_var=""
-# === Regla inicial ===
+
 def p_expresion(p):
     'expresion : conversion Final'
     p[0] = p[1] 
-    
     return p[0]
 
 def p_conversion(p):
@@ -16,30 +15,27 @@ def p_conversion(p):
     global global_var
     global_var=f"Conversión válida: De {p[1]} a {p[3]} con el número {p[2]} resultado:{p[0]}"
     print(global_var)
-# Definir las reglas de SistemaOrigen y SistemaDestino
+
 def p_SistemaOrigen(p):
     'SistemaOrigen : Sistema'
-    p[0] = p[1]  # Asignamos el valor del sistema de origen
+    p[0] = p[1]  
 
 def p_SistemaDestino(p):
     'SistemaDestino : Sistema'
-    p[0] = p[1]  # Asignamos el valor del sistema de destino
-
+    p[0] = p[1]  
 
 def p_error(p):
     if p:
-       global global_var 
-       global_var= f"[SINTÁCTICO] Error de sintaxis con '{p.value}' en línea {p.lineno}"
+        global global_var 
+        global_var= f"[SINTÁCTICO] Error de sintaxis con '{p.value}' en línea {p.lineno}"
     else:
-       
-       global_var = "[SINTÁCTICO] Error de sintaxis al final de la entrada."
-    p="error"
-    return "error"
+        global_var = "[SINTÁCTICO] Error de sintaxis al final de la entrada."
+    return p
 
 
 parser = yacc.yacc(debug=True)
 
-"""def analizadorSintactico(input):
+def analizadorSintactico(input):
     res=""
     print(input)
     try:
@@ -47,6 +43,5 @@ parser = yacc.yacc(debug=True)
     except Exception as e:
         return str(e)
     print(res)
-    return global_var"""
-
+    return global_var
 

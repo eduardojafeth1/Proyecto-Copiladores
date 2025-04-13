@@ -158,13 +158,13 @@ def convertir(valor, origen, destino):
     
 
 def convertir_aleatorio(valor, origen):
-    # Lista de posibles destinos
+
     destinos_posibles = ["Decimal", "Octal", "Hexadecimal", "Binario", "Romano"]
     
-    # Filtrar los destinos posibles para que no sea igual al origen
+
     destinos_posibles = [destino for destino in destinos_posibles if destino != origen]
     
-    # Escoge un destino aleatorio
+
     destino = random.choice(destinos_posibles)
     
     return convertir(valor, origen, destino)

@@ -7,7 +7,7 @@ from AnalizadorLexico import analizadorLexico
 from rxconfig import config
 
 sistemas_origen = ["Binario", "Octal", "Decimal", "Hexadecimal"]
-sistemas_destino = ["Binario", "Octal", "Decimal", "Hexadecimal", "Romano", "Aleatorio"]
+sistemas_destino = ["Binario", "Octal", "Decimal", "Hexadecimal", "Romano", "Aleatorio","Alternativo"]
 
 class State(rx.State):
     """The app state."""
@@ -21,23 +21,19 @@ class State(rx.State):
     def mostrar_datos(self):
 
         entrada=self.sistema_origen+" "+self.numero+" "+self.sistema_destino+"$"
-        if self.numero:    
-            
+        if self.numero:
             salida= analizadorSintactico(entrada)
             self.salida=str(salida)
         else:
             self.salida	= "no hay nada"
-           
         self.tokens= analizadorLexico(entrada)
 
-            
-        
+
 
     ...
 
 
 def index() -> rx.Component:
-    # Welcome Page (Index)
     return rx.container(
         rx.color_mode.button(position="top-right"),
         rx.vstack(
@@ -62,7 +58,6 @@ def index() -> rx.Component:
             rx.button("Mostrar datos", on_click=State.mostrar_datos),
             rx.box(
     rx.hstack(
-        # Primera columna
         rx.box(
             rx.heading("Analizis sintactico",color="#111"),
             rx.text(State.salida, color="#000"),
@@ -70,14 +65,13 @@ def index() -> rx.Component:
             padding="1em"
         ),
 
-        # Barra vertical divisora
+     
         rx.box(
             width="1px",
-            background_color="#ccc",  # Gris claro
+            background_color="#ccc",  
             height="100%"
         ),
 
-        # Segunda columna
         rx.box(
             rx.heading("Analizis Lexico",color="#111"),
             rx.foreach(

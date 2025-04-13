@@ -1,9 +1,9 @@
 from AnalizadorLexico import analizadorLexico
 from AnalizadorSintactico import parser
-import flask
+
 
 with open('conversiones.txt', 'r') as archivo:
-    for linea in archivo:   
+    for linea in archivo:
         print(analizadorLexico(linea))
 
         
