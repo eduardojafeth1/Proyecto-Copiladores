@@ -1,7 +1,7 @@
-#PROYECTO COPILADORES
+# PROYECTO COPILADORES
 
 > [!IMPORTANT]
-> HACE FALTA CREAR EL COMPORTAMIENTO DE LAS CONVERSIONES Y REMPLAZAR ESO EN EL ANALIZADOR SINTACTICO
+> Proyecto terminado con exito 🎉
 
 El analizador léxico tiene como objetivo identificar y dividir la entrada en tokens. Los tokens que se deben identificar son:
 
@@ -32,14 +32,4 @@ El analizador sintáctico tiene como objetivo analizar la estructura de los toke
 - [x] Imprimir un mensaje al detectar una conversión válida y los detalles del sistema de origen, número y sistema de destino.
 -[x] Crear Funciones de conversion y remplazar el comportamiento en las reglas del analizador Sintactico
 ---
-
-### 4. **Construcción del Árbol Sintáctico**
-
-La construcción del árbol sintáctico es opcional, pero puede ser útil para representar la estructura de la conversión de manera visual.
-
-**Tareas a realizar**:
-- [ ] Crear un árbol sintáctico que represente la conversión, con nodos para el sistema de origen, número y sistema de destino.
-- [] Implementar funciones que recorran el árbol sintáctico y realicen la conversión de manera jerárquica.
-- [ ] Usar el árbol para mostrar el proceso de conversión de manera más clara.
-
 
